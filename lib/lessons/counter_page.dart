@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:latihan_bloc/lessons/bloc/counter.dart';
+import 'bloc/counter.dart';
 
 class CounterPage extends StatelessWidget {
   CounterPage({super.key});
@@ -27,26 +27,31 @@ class CounterPage extends StatelessWidget {
                       fontSize: 50,
                     ),
                   ),
+                  Text("Current : ${myCounter.current}"),
+                  Text("Next : ${myCounter.next}"),
+                
+               ],
+             );
+           },
+         ),
+         const SizedBox(height: 30),
+         Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+                  IconButton(
+              icon: const Icon(Icons.remove),
+              onPressed: myCounter.decrement,
+            ),
+                  IconButton(
+              icon: const Icon(Icons.add),
+              onPressed: myCounter.increment,       
+            ),
                 ],
-              );
-            },
-          ),
-          const SizedBox(height: 30),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              IconButton(
-                icon: const Icon(Icons.remove),
-                onPressed: myCounter.decrement,
-              ),
-              IconButton(
-                icon: const Icon(Icons.add),
-                onPressed: myCounter.increment,
-              )
-            ],
-          ),
-        ],
-      ),
-    );
-  }
+            ),
+       ],
+     ),
+   );
+ }
+ 
+  // row({required MainAxisAlignment mainAxisAlignment, required List<IconButton> children}) {}
 }
